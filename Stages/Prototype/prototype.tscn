@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqvwwup64isga"]
+
+[ext_resource type="PackedScene" uid="uid://ckn08sttifwhq" path="res://Objects/Metals/Stone/StoneObject.tscn" id="1_lq13j"]
+
+[node name="Prototype" type="Node2D"]
+
+[node name="Stone" parent="." instance=ExtResource("1_lq13j")]
+position = Vector2(156, 106)
+
+[node name="Stone2" parent="." instance=ExtResource("1_lq13j")]
+position = Vector2(233, 76)
+
+[node name="Stone3" parent="." instance=ExtResource("1_lq13j")]
+position = Vector2(63, 92)
+
+[node name="EQ" type="Label" parent="." groups=["EQ"]]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Stones: "
