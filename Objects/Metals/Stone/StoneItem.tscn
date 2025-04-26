@@ -5,16 +5,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgb0l"]
 size = Vector2(8, 8)
 
-[node name="StoneItem" type="RigidBody2D"]
+[node name="StoneItem" type="CharacterBody2D"]
+collision_mask = 2
 input_pickable = true
-mass = 10.0
-gravity_scale = 0.0
 script = ExtResource("1_ov2ue")
 
 [node name="Sprite" type="Polygon2D" parent="."]
-position = Vector2(8, 8)
 color = Color(0.162066, 0.162066, 0.162065, 1)
-offset = Vector2(-8, -8)
 polygon = PackedVector2Array(0, 0, 8, 0, 8, 8, 0, 8)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
