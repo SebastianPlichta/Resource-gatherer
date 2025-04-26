@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetalsId" load_steps=3 format=3 uid="uid://cdxsgb5h55p47"]
+
+[ext_resource type="Script" uid="uid://d26h6ftpxrgg5" path="res://Objects/Metals/metalsResource.gd" id="1_mskhq"]
+[ext_resource type="PackedScene" uid="uid://cxvq6fda7xuq3" path="res://Objects/Metals/Stone/StoneItem.tscn" id="1_o31rh"]
+
+[resource]
+script = ExtResource("1_mskhq")
+name = "Stone"
+health = 3
+item = ExtResource("1_o31rh")
+quanityMin = 1
+quanityMax = 3
+metadata/_custom_type_script = "uid://d26h6ftpxrgg5"

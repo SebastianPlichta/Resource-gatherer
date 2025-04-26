@@ -1,11 +1,26 @@
-extends Node
+extends CharacterBody2D
 
+class_name MetalsCollectable
 
-# Called when the node enters the scene tree for the first time.
+var mouse:bool
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	self.connect("mouse_entered", Callable(self, "_on_mouse_entered"))
+	self.connect("mouse_exited", Callable(self, "_on_mouse_exited"))
+	
 func _process(delta: float) -> void:
-	pass
+	if mouse and abs(velocity) <= Vector2(0.5,0.5):
+		SignalBus.emit_signal("addItem",0)
+		self.queue_free()
+
+func _physics_process(delta: float) -> void:
+	velocity = lerp(velocity, Vector2.ZERO, delta * 10)
+	move_and_slide()
+	
+	
+func _on_mouse_entered() -> void:
+	mouse = true
+
+
+func _on_mouse_exited() -> void:
+	mouse = false

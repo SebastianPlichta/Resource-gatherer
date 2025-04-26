@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckn08sttifwhq"]
+[gd_scene load_steps=7 format=3 uid="uid://tgmck0q0u40v"]
 
-[ext_resource type="Script" uid="uid://f4pjrdsuoott" path="res://Objects/Metals/Stone/stone_object.gd" id="1_w4lfw"]
-[ext_resource type="Resource" uid="uid://cdxsgb5h55p47" path="res://Objects/Metals/Stone/Stone.tres" id="2_c3voe"]
+[ext_resource type="Script" uid="uid://bqmpsgu5r5ao6" path="res://Objects/Metals/Iron/iron_object.gd" id="1_xmgj1"]
+[ext_resource type="Resource" uid="uid://c3ql16myn88yk" path="res://Objects/Metals/Iron/Iron.tres" id="2_16vrx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgb0l"]
 size = Vector2(16, 16)
@@ -67,9 +67,9 @@ _data = {
 &"RESET": SubResource("Animation_w4lfw")
 }
 
-[node name="Stone" type="Area2D"]
-script = ExtResource("1_w4lfw")
-id = ExtResource("2_c3voe")
+[node name="Iron" type="Area2D"]
+script = ExtResource("1_xmgj1")
+id = ExtResource("2_16vrx")
 
 [node name="Sprite" type="Polygon2D" parent="."]
 position = Vector2(8, 8)

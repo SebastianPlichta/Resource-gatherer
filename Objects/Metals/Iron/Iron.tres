@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MetalsId" load_steps=3 format=3 uid="uid://c3ql16myn88yk"]
+
+[ext_resource type="PackedScene" uid="uid://drnae0qupckt4" path="res://Objects/Metals/Iron/IronItem.tscn" id="1_bicfc"]
+[ext_resource type="Script" uid="uid://d26h6ftpxrgg5" path="res://Objects/Metals/metalsResource.gd" id="2_o30vy"]
+
+[resource]
+script = ExtResource("2_o30vy")
+name = "Iron"
+health = 1
+item = ExtResource("1_bicfc")
+quanityMin = 0
+quanityMax = 1
+metadata/_custom_type_script = "uid://d26h6ftpxrgg5"

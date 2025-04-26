@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxvq6fda7xuq3"]
+[gd_scene load_steps=3 format=3 uid="uid://dxnkuhokvptmq"]
 
-[ext_resource type="Script" uid="uid://bnow5hgx3cawx" path="res://Objects/Metals/metals_collectable.gd" id="1_ov2ue"]
+[ext_resource type="Script" uid="uid://btf6e6ghhtxi5" path="res://Objects/Metals/Iron/iron_item.gd" id="1_rb3rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgb0l"]
 size = Vector2(8, 8)
 
-[node name="StoneItem" type="CharacterBody2D"]
+[node name="IronItem" type="CharacterBody2D"]
 collision_mask = 2
 input_pickable = true
-script = ExtResource("1_ov2ue")
+script = ExtResource("1_rb3rh")
 
 [node name="Sprite" type="Polygon2D" parent="."]
-color = Color(0.162066, 0.162066, 0.162065, 1)
+color = Color(0.756863, 0.756863, 0.756863, 1)
 polygon = PackedVector2Array(0, 0, 8, 0, 8, 8, 0, 8)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
