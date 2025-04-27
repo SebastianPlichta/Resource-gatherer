@@ -1,74 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqvwwup64isga"]
+[gd_scene load_steps=6 format=3 uid="uid://cqvwwup64isga"]
 
 [ext_resource type="PackedScene" uid="uid://ckn08sttifwhq" path="res://Objects/Metals/Stone/StoneObject.tscn" id="1_lq13j"]
 [ext_resource type="Script" uid="uid://c740gixc0hde7" path="res://Stages/Prototype/prototype.gd" id="1_sjrbu"]
+[ext_resource type="Script" uid="uid://co3w7ubf2nm40" path="res://Stages/Prototype/game.gd" id="2_6d3ge"]
 [ext_resource type="PackedScene" uid="uid://tgmck0q0u40v" path="res://Objects/Metals/Iron/IronObject.tscn" id="3_kpmhv"]
+[ext_resource type="Script" uid="uid://dky2p2ga3hyo2" path="res://Stages/Prototype/sub_viewport.gd" id="3_rn5o0"]
 
 [node name="Prototype" type="Node2D"]
 script = ExtResource("1_sjrbu")
 
-[node name="EQ" type="Label" parent="." groups=["EQ"]]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Stones: "
+[node name="Game" type="Node" parent="."]
+script = ExtResource("2_6d3ge")
 
-[node name="EQ2" type="Label" parent="." groups=["EQ"]]
-offset_top = 23.0
-offset_right = 61.0
-offset_bottom = 46.0
-text = "Iron: "
+[node name="viewport" type="SubViewportContainer" parent="Game"]
+offset_right = 320.0
+offset_bottom = 180.0
 
-[node name="EQ3" type="Label" parent="." groups=["EQ"]]
-offset_top = 49.0
-offset_right = 61.0
-offset_bottom = 72.0
-text = "Pickaxe lvl: "
+[node name="SubViewport" type="SubViewport" parent="Game/viewport" groups=["Viewport"]]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+script = ExtResource("3_rn5o0")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 180.0
-offset_top = 133.0
-offset_right = 317.0
-offset_bottom = 164.0
-text = "Upgrade Pickaxe"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 201.0
-offset_top = 158.0
-offset_right = 241.0
-offset_bottom = 181.0
-text = "5 stones cost"
-
-[node name="Iron" parent="." instance=ExtResource("3_kpmhv")]
+[node name="Iron" parent="Game/viewport/SubViewport" instance=ExtResource("3_kpmhv")]
 position = Vector2(26, 150)
 
-[node name="Iron2" parent="." instance=ExtResource("3_kpmhv")]
+[node name="Iron2" parent="Game/viewport/SubViewport" instance=ExtResource("3_kpmhv")]
 position = Vector2(51, 150)
 
-[node name="Iron3" parent="." instance=ExtResource("3_kpmhv")]
+[node name="Iron3" parent="Game/viewport/SubViewport" instance=ExtResource("3_kpmhv")]
 position = Vector2(79, 148)
 
-[node name="Iron4" parent="." instance=ExtResource("3_kpmhv")]
+[node name="Iron4" parent="Game/viewport/SubViewport" instance=ExtResource("3_kpmhv")]
 position = Vector2(110, 146)
 
-[node name="Stone" parent="." instance=ExtResource("1_lq13j")]
-position = Vector2(107, 81)
+[node name="Stone" parent="Game/viewport/SubViewport" instance=ExtResource("1_lq13j")]
+position = Vector2(98, 107)
 
-[node name="Stone2" parent="." instance=ExtResource("1_lq13j")]
-position = Vector2(138, 81)
+[node name="Stone2" parent="Game/viewport/SubViewport" instance=ExtResource("1_lq13j")]
+position = Vector2(147, 79)
 
-[node name="Stone3" parent="." instance=ExtResource("1_lq13j")]
-position = Vector2(165, 56)
+[node name="Stone3" parent="Game/viewport/SubViewport" instance=ExtResource("1_lq13j")]
+position = Vector2(138, 109)
 
-[node name="Stone4" parent="." instance=ExtResource("1_lq13j")]
-position = Vector2(218, 70)
+[node name="Stone4" parent="Game/viewport/SubViewport" instance=ExtResource("1_lq13j")]
+position = Vector2(73, 80)
 
-[node name="Stone5" parent="." instance=ExtResource("1_lq13j")]
-position = Vector2(247, 54)
+[node name="Stone5" parent="Game/viewport/SubViewport" instance=ExtResource("1_lq13j")]
+position = Vector2(120, 52)
 
-[node name="Stone6" parent="." instance=ExtResource("1_lq13j")]
-position = Vector2(281, 105)
+[node name="Stone6" parent="Game/viewport/SubViewport" instance=ExtResource("1_lq13j")]
+position = Vector2(111, 85)
 
-[node name="Stone7" parent="." instance=ExtResource("1_lq13j")]
-position = Vector2(212, 108)
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Stone7" parent="Game/viewport/SubViewport" instance=ExtResource("1_lq13j")]
+position = Vector2(57, 100)

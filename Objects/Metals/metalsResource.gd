@@ -7,3 +7,4 @@ class_name MetalsId
 @export var item:PackedScene
 @export var quanityMin:int
 @export var quanityMax:int
+@export var pickaxeLevel:int

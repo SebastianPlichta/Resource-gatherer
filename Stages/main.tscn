@@ -1,0 +1,170 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2fp7hej2ujfq"]
+
+[ext_resource type="Script" uid="uid://co3w7ubf2nm40" path="res://Stages/Prototype/game.gd" id="1_74i4i"]
+[ext_resource type="Script" uid="uid://bcspcxr0t5tj7" path="res://Stages/main.gd" id="1_n1pa2"]
+[ext_resource type="Script" uid="uid://dky2p2ga3hyo2" path="res://Stages/Prototype/sub_viewport.gd" id="2_n1pa2"]
+[ext_resource type="PackedScene" uid="uid://tgmck0q0u40v" path="res://Objects/Metals/Iron/IronObject.tscn" id="3_bwf0q"]
+[ext_resource type="PackedScene" uid="uid://ckn08sttifwhq" path="res://Objects/Metals/Stone/StoneObject.tscn" id="4_2rsqi"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_n1pa2")
+
+[node name="Upgrade Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1397.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="BG" type="ColorRect" parent="Upgrade Menu"]
+custom_minimum_size = Vector2(480, 1080)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+mouse_filter = 1
+color = Color(0.348923, 0.213528, 0.157958, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Upgrade Menu/BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrade Menu/BG/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 56
+text = "--Upgrade Menu--"
+
+[node name="Pickaxe" type="HBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/Pickaxe"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 76
+text = "Pickaxe"
+
+[node name="PickaxeSubUpgrade" type="HBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 76
+text = "Pickaxe"
+
+[node name="EQ" type="Label" parent="." groups=["EQ"]]
+offset_left = 22.0
+offset_top = 122.0
+offset_right = 310.0
+offset_bottom = 227.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 76
+text = "Stones: "
+
+[node name="EQ2" type="Label" parent="." groups=["EQ"]]
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 213.0
+offset_bottom = 115.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 76
+text = "Iron: "
+
+[node name="EQ3" type="Label" parent="." groups=["EQ"]]
+offset_left = 12.0
+offset_top = 244.0
+offset_right = 435.0
+offset_bottom = 349.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 76
+text = "Pickaxe lvl: "
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1219.0
+offset_top = 761.0
+offset_right = 1880.0
+offset_bottom = 880.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 81
+text = "Upgrade Pickaxe"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1345.0
+offset_top = 893.0
+offset_right = 1852.0
+offset_bottom = 1004.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 81
+text = "5 stones cost"
+
+[node name="Game" type="Node" parent="."]
+script = ExtResource("1_74i4i")
+
+[node name="viewport" type="SubViewportContainer" parent="Game"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -799.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 6
+
+[node name="SubViewport" type="SubViewport" parent="Game/viewport"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+physics_object_picking = true
+size = Vector2i(186, 180)
+render_target_update_mode = 4
+script = ExtResource("2_n1pa2")
+
+[node name="Iron" parent="Game/viewport/SubViewport" instance=ExtResource("3_bwf0q")]
+position = Vector2(26, 150)
+
+[node name="Iron2" parent="Game/viewport/SubViewport" instance=ExtResource("3_bwf0q")]
+position = Vector2(51, 150)
+
+[node name="Iron3" parent="Game/viewport/SubViewport" instance=ExtResource("3_bwf0q")]
+position = Vector2(79, 148)
+
+[node name="Iron4" parent="Game/viewport/SubViewport" instance=ExtResource("3_bwf0q")]
+position = Vector2(110, 146)
+
+[node name="Stone" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
+position = Vector2(98, 107)
+
+[node name="Stone2" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
+position = Vector2(147, 79)
+
+[node name="Stone3" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
+position = Vector2(138, 109)
+
+[node name="Stone4" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
+position = Vector2(73, 80)
+
+[node name="Stone5" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
+position = Vector2(120, 52)
+
+[node name="Stone6" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
+position = Vector2(111, 85)
+
+[node name="Stone7" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
+position = Vector2(57, 100)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

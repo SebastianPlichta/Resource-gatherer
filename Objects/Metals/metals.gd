@@ -14,7 +14,16 @@ func _ready() -> void:
 	self.connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	health = id.health
 
+func _process(delta: float) -> void:
+	if mouse and Globals.leftClick and !anim.is_playing() and Globals.items[2] >= id.pickaxeLevel:
+		anim.play("Hit")
+		health -= 1
+		if health <= 0:
+			destroy()
+			return
+
 func destroy():
+	throwItem()
 	self.queue_free()
 		
 func throwItem():
@@ -23,7 +32,7 @@ func throwItem():
 		var newInstance:CharacterBody2D = id.item.instantiate()
 		
 		newInstance.position = global_position + Vector2(6,6)
-		get_tree().current_scene.add_child(newInstance)
+		get_parent().add_child(newInstance)
 		
 		var direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 		var speed = randf_range(100, 200)

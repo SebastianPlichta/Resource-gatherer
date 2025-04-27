@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Resource Gatherer"
-run/main_scene="uid://cqvwwup64isga"
+run/main_scene="uid://c2fp7hej2ujfq"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -22,8 +22,8 @@ SignalBus="*res://Common/Globals/signal_bus.gd"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=180
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"

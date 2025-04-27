@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_mskhq")
 name = "Stone"
-health = 3
+health = 2
 item = ExtResource("1_o31rh")
-quanityMin = 1
-quanityMax = 3
+quanityMin = 3
+quanityMax = 5
+pickaxeLevel = 0
 metadata/_custom_type_script = "uid://d26h6ftpxrgg5"
