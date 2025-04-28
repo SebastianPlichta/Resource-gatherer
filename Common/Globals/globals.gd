@@ -3,6 +3,8 @@ extends Node
 var leftClick:bool
 var items:Array = [0,0,1]
 
+var pickaxe = Pickaxe.new()
+
 @onready var eq: Label
 @onready var eq_2: Label
 @onready var eq_3: Label
