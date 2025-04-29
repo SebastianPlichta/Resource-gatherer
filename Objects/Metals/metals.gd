@@ -15,9 +15,9 @@ func _ready() -> void:
 	health = id.health
 
 func _process(delta: float) -> void:
-	if mouse and Globals.leftClick and !anim.is_playing() and Globals.items[2] >= id.pickaxeLevel:
+	if mouse and Globals.leftClick and !anim.is_playing() and Globals.pickaxe.statistics.get("head") >= id.pickaxeLevel:
 		anim.play("Hit")
-		health -= 1
+		health -= Globals.pickaxe.statistics.get("rod")
 		if health <= 0:
 			destroy()
 			return
@@ -28,7 +28,7 @@ func destroy():
 		
 func throwItem():
 	var number = randi_range(id.quanityMin,id.quanityMax)
-	for x in range(0,number):
+	for x in range(0,number + Globals.pickaxe.statistics.get("binding")):
 		var newInstance:CharacterBody2D = id.item.instantiate()
 		
 		newInstance.position = global_position + Vector2(6,6)

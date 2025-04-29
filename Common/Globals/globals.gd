@@ -7,18 +7,16 @@ var pickaxe = Pickaxe.new()
 
 @onready var eq: Label
 @onready var eq_2: Label
-@onready var eq_3: Label
 
 @onready var eqs:Array
 
-var eqsText:Array = ["Stone: ", "Iron: ", "Pickaxe lvl: "]
+var eqsText:Array = ["Stone: ", "Iron: "]
 
 func _ready() -> void:
 	SignalBus.connect("addItem", Callable(self, "_addItem"))
 	eq = get_tree().current_scene.get_node("EQ")
 	eq_2 = get_tree().current_scene.get_node("EQ2")
-	eq_3 = get_tree().current_scene.get_node("EQ3")
-	eqs = [eq,eq_2,eq_3]
+	eqs = [eq,eq_2]
 	
 func _process(delta: float) -> void:
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2fp7hej2ujfq"]
 
-[ext_resource type="Script" uid="uid://co3w7ubf2nm40" path="res://Stages/Prototype/game.gd" id="1_74i4i"]
 [ext_resource type="Script" uid="uid://bcspcxr0t5tj7" path="res://Stages/main.gd" id="1_n1pa2"]
+[ext_resource type="Script" uid="uid://bs2a7yl314a5k" path="res://Common/UI/Crafting/Pickaxe Upgrade/pickaxe_sub_upgrade.gd" id="2_2rsqi"]
 [ext_resource type="ButtonGroup" uid="uid://cb1tubopf71i6" path="res://Common/UI/Crafting/choose3ButtonGroup.tres" id="2_bwf0q"]
 [ext_resource type="Script" uid="uid://dky2p2ga3hyo2" path="res://Stages/Prototype/sub_viewport.gd" id="2_n1pa2"]
 [ext_resource type="PackedScene" uid="uid://tgmck0q0u40v" path="res://Objects/Metals/Iron/IronObject.tscn" id="3_bwf0q"]
@@ -58,20 +58,28 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 76
 text = "Pickaxe"
 
-[node name="PickaxeSubUpgrade" type="HBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer"]
+[node name="PickaxeSubUpgrade" type="VBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer" node_paths=PackedStringArray("options", "description", "upgrade_button")]
+layout_mode = 2
+script = ExtResource("2_2rsqi")
+options = NodePath("Options")
+description = NodePath("partDesctiption")
+upgrade_button = NodePath("Upgrade")
+
+[node name="Options" type="HBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
 layout_mode = 2
 alignment = 1
 
-[node name="Head" type="CheckBox" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
+[node name="Head" type="CheckBox" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade/Options"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
+button_pressed = true
 button_group = ExtResource("2_bwf0q")
 text = "Head"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Binding" type="CheckBox" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
+[node name="Binding" type="CheckBox" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade/Options"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
@@ -81,15 +89,28 @@ text = "Binding
 icon_alignment = 1
 expand_icon = true
 
-[node name="Rod" type="CheckBox" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
+[node name="Rod" type="CheckBox" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade/Options"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-button_pressed = true
 button_group = ExtResource("2_bwf0q")
 text = "Rod"
 icon_alignment = 1
 expand_icon = true
+
+[node name="partDesctiption" type="Label" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
+custom_minimum_size = Vector2(480, 160)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Description about current selecting part"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Upgrade" type="Button" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Upgrade"
 
 [node name="EQ" type="Label" parent="." groups=["EQ"]]
 offset_left = 22.0
@@ -109,35 +130,7 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 76
 text = "Iron: "
 
-[node name="EQ3" type="Label" parent="." groups=["EQ"]]
-offset_left = 12.0
-offset_top = 244.0
-offset_right = 435.0
-offset_bottom = 349.0
-mouse_filter = 1
-theme_override_font_sizes/font_size = 76
-text = "Pickaxe lvl: "
-
-[node name="Button" type="Button" parent="."]
-offset_left = 1169.0
-offset_top = 781.0
-offset_right = 1830.0
-offset_bottom = 900.0
-mouse_filter = 1
-theme_override_font_sizes/font_size = 81
-text = "Upgrade Pickaxe"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 1272.0
-offset_top = 926.0
-offset_right = 1779.0
-offset_bottom = 1037.0
-mouse_filter = 1
-theme_override_font_sizes/font_size = 81
-text = "5 stones cost"
-
 [node name="Game" type="Node" parent="."]
-script = ExtResource("1_74i4i")
 
 [node name="viewport" type="SubViewportContainer" parent="Game"]
 anchors_preset = 15
@@ -190,5 +183,3 @@ position = Vector2(111, 85)
 
 [node name="Stone7" parent="Game/viewport/SubViewport" instance=ExtResource("4_2rsqi")]
 position = Vector2(57, 100)
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
