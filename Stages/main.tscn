@@ -58,12 +58,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 76
 text = "Pickaxe"
 
-[node name="PickaxeSubUpgrade" type="VBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer" node_paths=PackedStringArray("options", "description", "upgrade_button")]
+[node name="PickaxeSubUpgrade" type="VBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer" node_paths=PackedStringArray("options", "description", "upgrade_button", "upgrade_costs")]
 layout_mode = 2
 script = ExtResource("2_2rsqi")
 options = NodePath("Options")
 description = NodePath("partDesctiption")
 upgrade_button = NodePath("Upgrade")
+upgrade_costs = NodePath("Upgrade costs")
 
 [node name="Options" type="HBoxContainer" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
 layout_mode = 2
@@ -103,6 +104,15 @@ custom_minimum_size = Vector2(480, 160)
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Description about current selecting part"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Upgrade costs" type="Label" parent="Upgrade Menu/BG/MarginContainer/VBoxContainer/PickaxeSubUpgrade"]
+custom_minimum_size = Vector2(480, 160)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Costs"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
